@@ -69,7 +69,7 @@ Here are descripted all its arguments (some defaults values are made for a speci
     - `schedule: dict[str: Sequence[Any]]`: Sequence of values for each arg that must be set in a separated job.
 
 
-## A simple example
+## A simple example
 
 The relevant code can be found in the [example](example/) folder.
 
@@ -93,8 +93,8 @@ schedule(
 ```
 
 This schedule sets the defaults values for the `add()` function both to 0 through the `arg` keyword argument. <br>
-It schedules four jobs:
-    - one with `a=1, b=0` (first scheduled value for `a`, default value for `b`).
-    - one with `a=2, b=0` (second scheduled value for `a`, default value for `b`).
-    - one with `a=0, b=4` (default value for `a`, first scheduled values for `b`).
-    - one with `a=0, b=5` (default value for `a`, second scheduled value `b`).
+It schedules four jobs: <br>
+    - one with `a=1, b=0` (first scheduled value for `a`, default value for `b`). <br>
+    - one with `a=2, b=0` (second scheduled value for `a`, default value for `b`). <br>
+    - one with `a=0, b=4` (default value for `a`, first scheduled values for `b`). <br>
+    - one with `a=0, b=5` (default value for `a`, second scheduled value `b`). <br>
