@@ -1,6 +1,6 @@
-# YASS - Yet Another SLURM Scheduler
+# TESSTI - The Easiest SLURM Scheduler There Is
 
-Yass has been made to be the simplest SLURM scheduler possible. <br>
+Tessti has been made to be the simplest SLURM scheduler possible. <br>
 It does not offer much but it works, and is extremely easy to use.
 
 
@@ -14,10 +14,10 @@ python script.py --arg1 value1 --arg2 value2
 
 You want to schedule many executions of this script with different values for arguments `arg1` and `arg2`.
 
-Then you only need to create a file called `schedule.py` aside `script.py` with a call to the unique **yass** function `schedule()`:
+Then you only need to create a file called `schedule.py` aside `script.py` with a call to the unique **tessti** function `schedule()`:
 
 ```python
-from yass import schedule
+from tessti import schedule
 
 schedule(
     ...,
@@ -33,7 +33,7 @@ schedule(
 
 ## The `schedule` function
 
-The `schedule` function is the only things you'll see from yass. <br>
+The `schedule` function is the only things you'll see from tessti. <br>
 Here are descripted all its arguments (some defaults values are made for a specific HPC I use, you should most likely update them):
 
 - SLURM parameters:
@@ -81,7 +81,7 @@ add(a: int, b: int) -> int:
 The file `schedule.py` is aside the `script.py` and its content is the following:
 
 ```python
-from yass import schedule
+from tessti import schedule
 
 schedule(
     ...,  # SLURM parameters

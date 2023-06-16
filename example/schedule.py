@@ -1,4 +1,4 @@
-from yass import schedule
+from tessti import schedule
 
 
 schedule(

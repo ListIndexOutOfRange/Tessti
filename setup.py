@@ -2,10 +2,10 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
-from yass import __author__, __email__, __version__
+from tessti import __author__, __email__, __version__
 
 
-name = "yass"
+name = "tessti"
 url = f"https://github.com/ListIndexOutOfRange/{name}"
 
 with open("README.md", "r") as f:
@@ -22,8 +22,8 @@ setup(
     author=__author__,
     author_email=__email__,
     url=url,
-    packages=["yass", ],
-    package_dir={"yass": "yass"},
+    packages=["tessti", ],
+    package_dir={"tessti": "tessti"},
     install_requires=install_requires,
     license="GPLv3",
     zip_safe=False,
