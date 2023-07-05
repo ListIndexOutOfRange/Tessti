@@ -11,7 +11,7 @@ url = f"https://github.com/ListIndexOutOfRange/{name}"
 with open("README.md", "r") as f:
     readme = f.read()
 
-install_requires = ["toml",]
+install_requires = ["fire", "prettytable", "toml"]
 
 setup(
     name=name,
@@ -36,6 +36,7 @@ setup(
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
     ],
+    entry_points={"console_scripts": ['tessti=tessti.main:cli']},
     python_requires=">=3.7",
 )
 

@@ -1,0 +1,9 @@
+name = "DEV_b=5"
+
+[run]
+file = "example/script.py"
+function = "add"
+
+[args]
+a = 1
+b = 5

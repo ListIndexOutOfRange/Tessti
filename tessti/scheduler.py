@@ -28,8 +28,7 @@ class HPCScheduler:
 
     @property
     def slurm_script_params(self) -> tuple[str | int | list[str]]:
-        return (self.config['slurm']['working_dir'],
-                self.config['slurm']['jobs_dir'],
+        return (self.config['slurm']['jobs_dir'],
                 self.config['slurm']['partition'],
                 self.config['slurm']['account'],
                 self.config['slurm']['node'],
@@ -71,8 +70,8 @@ class HPCScheduler:
     def write_slurm_job_files(self, config_paths: list[Path]) -> None:
         for config_path in config_paths:
             config = toml.load(config_path)
-            job_name = config['name']
-            script = get_slurm_script(job_name, *self.slurm_script_params)
+            working_dir, job_name = config['run']['working_dir'], config['name']
+            script = get_slurm_script(working_dir, job_name, *self.slurm_script_params)
             script_path = str(self.jobs_dir / f'{job_name}.job')
             with open(script_path, 'w') as file:
                 file.write(script)
@@ -93,8 +92,8 @@ class HPCScheduler:
 
 
 def get_slurm_script(
-    job_name: str,
     working_dir: str,
+    job_name: str,
     jobs_dir: str,
     partition: str,
     account: str,
@@ -107,9 +106,10 @@ def get_slurm_script(
     modules: list[str],
     commands: list[str],
 ) -> str:
-    working_dir = str(Path(working_dir).resolve())
-    stem = Path(jobs_dir) / job_name
-    config, output = f'{stem}.toml', f'{stem}.out'
+    working_dir = Path(working_dir).resolve()
+    stem = working_dir / Path(jobs_dir) / job_name
+    config = str(stem.with_suffix('.toml'))
+    output = str(stem.with_suffix('.out'))
     slurm = f"""#! /bin/bash
 
 
@@ -143,6 +143,6 @@ def get_slurm_script(
 # |                                 RUN PYTHON SCRIPT                                  | #
 # +------------------------------------------------------------------------------------+ #
 
-python schedule.py --config {config}
+tessti run {config}
 """
     return slurm + env + run
