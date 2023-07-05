@@ -66,7 +66,7 @@ def resolve_config(**kwargs: ConfigHPC) -> ConfigHPC:
 
 def create_configs(
     *,
-    # ___________________________________ SLURM #
+    # ___________________________ SLURM
     jobs_dir: str,
     partition: str,
     account: str,
@@ -78,11 +78,11 @@ def create_configs(
     constraint: str,
     modules: list[str],
     commands: list[str],
-    # _____________________________________ JOB #
+    # _____________________________ JOB
     file: str,
     function: str,
     args: dict[Any: Any],
-    # ________________________________ SCHEDULE #
+    # ________________________ SCHEDULE
     name: str,
     schedule: dict[str: Sequence[Any]],
 ) -> Path:

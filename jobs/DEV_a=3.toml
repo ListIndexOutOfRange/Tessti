@@ -1,9 +1,0 @@
-name = "DEV_a=3"
-
-[run]
-file = "example/script.py"
-function = "add"
-
-[args]
-a = 3
-b = 2
