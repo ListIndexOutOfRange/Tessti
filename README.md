@@ -4,6 +4,13 @@ Tessti has been made to be the simplest SLURM scheduler possible. <br>
 It does not offer much but it works, and is extremely easy to use.
 
 
+## Install
+
+```
+pip install tessti
+```
+
+
 ## Getting Started
 
 Suppose you run locally a function `f` in a script named `script.py` in a folder `/some/path/` with some arguments. <br>
